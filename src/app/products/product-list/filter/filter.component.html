@@ -1,0 +1,15 @@
+<div class="filter-bar">
+  Filter :
+  <label for="filter-all">
+    <input type="radio" id="filter-all" name="filter" value="all" [(ngModel)]="whichFilter" (change)="onFilterChanged()">
+    <span>All ({{all}})</span>
+  </label>
+  <label for="filter-instock">
+    <input type="radio" id="filter-instock" name="filter" value="instock" [(ngModel)]="whichFilter" (change)="onFilterChanged()">
+    <span>In Stock ({{inStock}})</span>
+  </label>
+  <label for="filter-outstock">
+    <input type="radio" id="filter-outstock" name="filter" value="outstock" [(ngModel)]="whichFilter" (change)="onFilterChanged()">
+    <span>Out of Stock ({{outStock}})</span>
+  </label>
+</div>

@@ -1,0 +1,8 @@
+<app-search (searchTextChangeEvent)="searchTextCameFromSearchComponent($event)"></app-search>
+
+
+
+<app-product-list [searchText]="searchText" #productListComponent></app-product-list>
+
+
+<app-product-detail *ngIf="productListComponent.selectedProduct" [productListComponent]="productListComponentRef"></app-product-detail>

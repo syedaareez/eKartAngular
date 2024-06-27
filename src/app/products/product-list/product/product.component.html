@@ -1,0 +1,19 @@
+<div class="card">
+  <span class="discount-badge" *ngIf="item.discountedPrice">{{item.discountedPrice}}% OFF</span>
+  <img [src]="item.imageUrl">
+  <div class="card-body">
+    <h3 class="card-title">{{item.name}}</h3>
+    <div class="card-price"><span [ngStyle]="{'text-decoration':item.discountedPrice&&'line-through','margin-right':'10px'}">${{item.price}} </span> {{item.discountedPrice?' $'+(item.price-(item.price*item.discountedPrice/100)):''}}</div>
+    <div class="card-colors">
+      <span class="card-color" style="background-color: rgb(89, 28, 195);"></span>
+      <span class="card-color" style="background-color: black;"></span>
+      <span class="card-color" style="background-color: rgb(90, 204, 118);"></span>
+    </div>
+    <div class="card-gender">{{item.gender}}</div>
+
+  </div>
+  <div class="stock-status">
+    <!-- You will add your condition here to display if the item is in stock or not -->
+     {{item.isInInventory?"Only "+item.itemsLeft+" items left":"Not in stock"}}
+  </div>
+</div>

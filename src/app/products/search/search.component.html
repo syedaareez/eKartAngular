@@ -1,0 +1,9 @@
+<div class="search-container">
+  <form id="searchForm">
+    <input type="text" class="search-input" placeholder="Enter product name" (input)="onSearchTextChanged()" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+    <!-- <button type="submit" class="search-button">Search</button> -->
+  </form>
+  <div class="search-result" id="searchResult" *ngIf="searchText.length>0">
+    Search result for: {{searchText}}
+  </div>
+</div>

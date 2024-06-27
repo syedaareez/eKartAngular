@@ -1,0 +1,19 @@
+<app-filter [all]="all" [inStock]="inStock" [outStock]="outStock" (filterChangedEvent)="showFilteredProducts($event)"></app-filter>
+
+<div class="cards-container">
+  <ng-container
+    *ngFor="let item of shoesData"
+  >
+    <app-product
+      [item]="item"
+      (click)="selectedProduct=item"
+      *ngIf="(showFilteredProductsFlag==='all'||(showFilteredProductsFlag==='instock'&&item.isInInventory)||(showFilteredProductsFlag==='outstock'&&!item.isInInventory)||!showFilteredProductsFlag)&&(!searchText||(searchText!==''&&item.name.toLowerCase().includes(searchText.toLowerCase())))"
+    >
+    </app-product>
+  </ng-container >
+</div>
+
+
+
+
+

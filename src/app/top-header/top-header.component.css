@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.top-header {
+  background-color: #1ebe10; /* Red background color */
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+}

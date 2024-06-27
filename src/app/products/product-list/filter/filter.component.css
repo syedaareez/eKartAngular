@@ -1,0 +1,25 @@
+ /* Filter Bar Styling */
+ .filter-bar {
+  padding: 10px;
+  text-align: center;
+}
+
+.filter-bar label {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filter-bar input[type="radio"] {
+  display: none;
+}
+
+.filter-bar input[type="radio"] + span {
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+}
+
+.filter-bar input[type="radio"]:checked + span {
+  background-color: #3498db;
+  color: #fff;
+}

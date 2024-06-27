@@ -1,0 +1,28 @@
+<div *ngIf="isModalVisible" class="product-detail-overlay">
+  <div class="product-detail-modal" >
+    <button class="close-button" (click)="isModalVisible=false">X</button>
+    <img [src]="selectedProduct.imageUrl" class="product-detail-image" alt="Product Image">
+    <div class="product-detail-body">
+      <h2 class="product-detail-title">{{selectedProduct.name}}</h2>
+      <div class="product-detail-price">
+        <span [ngStyle]="{'text-decoration':selectedProduct.discountedPrice&&'line-through','margin-right':'10px'}">${{selectedProduct.price}}</span>
+        {{selectedProduct.discountedPrice ? ' $' + (selectedProduct.price - (selectedProduct.price * selectedProduct.discountedPrice / 100)) : ''}}
+      </div>
+      <div class="product-detail-colors">
+        <span class="product-detail-color" style="background-color: rgb(89, 28, 195);"></span>
+        <span class="product-detail-color" style="background-color: black;"></span>
+        <span class="product-detail-color" style="background-color: rgb(90, 204, 118);"></span>
+      </div>
+      <div class="product-detail-gender">{{selectedProduct.gender}}</div>
+      <div class="product-detail-stock-status">
+        {{selectedProduct.isInInventory ? "Only " + selectedProduct.itemsLeft + " items left" : "Not in stock"}}
+      </div>
+      <button >Success</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
