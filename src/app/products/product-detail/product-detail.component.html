@@ -1,6 +1,6 @@
-<div *ngIf="isModalVisible" class="product-detail-overlay">
+<div *ngIf="isModalVisible" class="product-detail-overlay" >
   <div class="product-detail-modal" >
-    <button class="close-button" (click)="isModalVisible=false">X</button>
+    <button class="close-button" (click)="closeModal()">X</button>
     <img [src]="selectedProduct.imageUrl" class="product-detail-image" alt="Product Image">
     <div class="product-detail-body">
       <h2 class="product-detail-title">{{selectedProduct.name}}</h2>
@@ -17,7 +17,6 @@
       <div class="product-detail-stock-status">
         {{selectedProduct.isInInventory ? "Only " + selectedProduct.itemsLeft + " items left" : "Not in stock"}}
       </div>
-      <button >Success</button>
     </div>
   </div>
 </div>

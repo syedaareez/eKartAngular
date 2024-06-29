@@ -26,6 +26,7 @@
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  user-select: none;
 }
 
 .card-price {
@@ -33,6 +34,7 @@
   font-size: 16px;
   color: #888;
   margin-bottom: 15px;
+  user-select: none;
 }
 
 .card-colors {
@@ -56,6 +58,7 @@
   background-color: #f0f0f0;
   border-radius: 20px;
   margin-bottom: 10px;
+  user-select: none;
 }
 
 .discount-badge {
@@ -74,6 +77,7 @@
     font-size: 12px;
     text-align: center;
     padding: 10px;
+    user-select: none;
 
   }
 
@@ -88,4 +92,17 @@
   .card {
     width: 100%;
   }
+}
+
+
+.highlightedCard {
+  border:1px solid rgb(0,0,0,0.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  scale:1.01;
+
+
+}
+
+.product-not-available{
+  opacity: 0.5;
 }

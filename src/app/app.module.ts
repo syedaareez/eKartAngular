@@ -14,7 +14,11 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductComponent } from './products/product-list/product/product.component';
 import { FilterComponent } from './products/product-list/filter/filter.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { SuccessButton } from './CustomDirectives/SuccessButton.directive';
+import { SuccessButton } from './CustomDirectives/AttributeDirectives/SuccessButton.directive';
+import { HighlightDirective } from './CustomDirectives/AttributeDirectives/highlight.directive';
+import { RandomBottonDirective } from './CustomDirectives/AttributeDirectives/random-botton.directive';
+import { NotAvailableDirective } from './CustomDirectives/AttributeDirectives/not-available.directive';
+import { CopyNgIfDirective } from './CustomDirectives/StructuralDirective/copy-ng-if.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { SuccessButton } from './CustomDirectives/SuccessButton.directive';
     FilterComponent,
     ProductDetailComponent,
     SuccessButton,
+    HighlightDirective,
+    RandomBottonDirective,
+    NotAvailableDirective,
+    CopyNgIfDirective,
   ],
   imports: [
     BrowserModule,

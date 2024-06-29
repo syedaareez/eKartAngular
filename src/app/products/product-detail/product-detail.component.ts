@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductListComponent } from '../product-list/product-list.component';
+import { ProductDetailModalService } from 'src/app/Services/product-detail-modal.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,6 +8,10 @@ import { ProductListComponent } from '../product-list/product-list.component';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
+
+  constructor(private modalservice:ProductDetailModalService){
+
+  }
 
   selectedProduct:{
     id:number,
@@ -22,12 +27,20 @@ export class ProductDetailComponent {
 
   isModalVisible: boolean ;
 
-  @Input() productListComponent:ProductListComponent = undefined;
+  // @Input() productListComponent:ProductListComponent = undefined;
 
   ngOnInit() {
-    this.isModalVisible=true;
-    this.selectedProduct=this.productListComponent.selectedProduct;
+    // this.selectedProduct=this.productListComponent.selectedProduct;
+    this.modalservice.openModalEvent.subscribe((obj:any)=>{
+      this.isModalVisible=obj.flag;
+      this.selectedProduct=obj.product;
+    })
   }
+
+  closeModal(){
+    this.isModalVisible =false;
+  }
+
 
 }
 
