@@ -1,4 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
+import { Observable, from, of } from 'rxjs';
 import { ProductDetailModalService } from 'src/app/Services/product-detail-modal.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class ProductListComponent {
   // OR
   // modalservice=inject(ProductDetailModalService);
 
-  shoesData = [
+  shoesData:any[]=[];
+
+  allShoesData:any[]=[
     {
       id: 1,
       name: "Nike Air Force 1 '07 Black & White Drip",
@@ -117,9 +120,9 @@ export class ProductListComponent {
 
   // for calculating numbers
 
-  all:number=this.shoesData.length;
-  inStock:number=this.shoesData.filter(p=>p.isInInventory===true).length
-  outStock:number=this.shoesData.filter(p=>p.isInInventory===false).length
+  all:number=this.allShoesData.length;
+  inStock:number=this.allShoesData.filter(p=>p.isInInventory===true).length
+  outStock:number=this.allShoesData.filter(p=>p.isInInventory===false).length
 
 
 
@@ -160,6 +163,60 @@ export class ProductListComponent {
   onProductSelect(item:any){
     this.selectedProduct=item;
     this.modalservice.openModal(item);
+  }
+
+  //Observable
+
+  delay:number=0;
+
+
+
+  myObservable=new Observable((observer)=>{
+
+
+    this.allShoesData.forEach((item)=>{
+      setTimeout(()=>{observer.next(item)},this.delay);
+      this.delay+=500;
+    })
+
+    setTimeout(()=>{observer.complete()},this.delay);
+
+    // observer.error(new Error('Something went wrong'))
+
+  })
+
+  //OR
+
+  // myObs1=of(1,2,3,4,5)
+
+  //OR
+
+  // myObs2=from([1,2,3,4,5])
+
+  //subscribe to the observable
+
+  // next,error,complete
+  getAsyncData(){
+    this.myObservable.subscribe({
+      //this wont work because 'this' will not recognise shoesData and is used for in scope of myObservable
+      // next(item){
+      //   this.shoesData.push(item);
+      // }
+      //instead we have to use it like
+      next:(item)=>{
+        this.shoesData.push(item);
+      },
+      error(error){
+        console.log("error -> ",error.message);
+      },
+      complete() {
+        console.log("All data has been fetched successfully!! ")
+      },
+    })
+  }
+
+  ngOnInit() {
+    this.getAsyncData();
   }
 
 }

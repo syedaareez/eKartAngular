@@ -27,11 +27,13 @@ export class ProductDetailComponent {
 
   isModalVisible: boolean ;
 
-  // @Input() productListComponent:ProductListComponent = undefined;
-
   ngOnInit() {
-    // this.selectedProduct=this.productListComponent.selectedProduct;
-    this.modalservice.openModalEvent.subscribe((obj:any)=>{
+
+    // this.modalservice.openModalEvent.subscribe((obj:any)=>{
+    //   this.isModalVisible=obj.flag;
+    //   this.selectedProduct=obj.product;
+    // })
+    this.modalservice.openModalSUbject.subscribe((obj:any)=>{
       this.isModalVisible=obj.flag;
       this.selectedProduct=obj.product;
     })
