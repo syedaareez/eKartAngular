@@ -28,6 +28,7 @@ body {
   color: #ddd;
   text-align: center;
   padding: 24px 20px;
+  cursor: pointer;
 }
 /* Responsive styles */
 @media screen and (max-width: 600px) {
@@ -37,3 +38,5 @@ body {
     text-align: left;
   }
 }
+
+

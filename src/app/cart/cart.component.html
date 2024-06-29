@@ -1,0 +1,31 @@
+<body>
+  <div class="cart-container">
+    <h2>Shopping Cart</h2>
+    <div class="cart-items">
+      <div *ngFor="let item of cartItems" class="cart-item">
+        <img [src]="item.imageUrl" alt="{{item.name}}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h3>{{item.name}}</h3>
+          <p>Gender: {{item.gender}}</p>
+          <div class="cart-item-colors">
+            <span *ngFor="let color of item.colors" class="cart-item-color" [style.background-color]="color"></span>
+          </div>
+          <p class="cart-item-price">
+            <span [ngStyle]="{'text-decoration':item.discountedPrice?'line-through':'none'}">
+              ${{item.price}}
+            </span>
+            <span *ngIf="item.discountedPrice">
+              ${{item.price - (item.price * item.discountedPrice / 100)}}
+            </span>
+          </p>
+          <p *ngIf="item.isInInventory">In Stock: {{item.itemsLeft}} left</p>
+          <p *ngIf="!item.isInInventory" class="out-of-stock">Out of Stock</p>
+        </div>
+      </div>
+    </div>
+    <div class="cart-total">
+      <h3>Total: ${{calculateTotal()}}</h3>
+    </div>
+  </div>
+</body>
+

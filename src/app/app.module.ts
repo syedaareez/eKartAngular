@@ -19,6 +19,17 @@ import { HighlightDirective } from './CustomDirectives/AttributeDirectives/highl
 import { RandomBottonDirective } from './CustomDirectives/AttributeDirectives/random-botton.directive';
 import { NotAvailableDirective } from './CustomDirectives/AttributeDirectives/not-available.directive';
 import { CopyNgIfDirective } from './CustomDirectives/StructuralDirective/copy-ng-if.directive';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import {  RouterModule, Routes } from '@angular/router';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { RoutingModule } from './routing/routing.module';
+import { LoginComponent } from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,10 +48,19 @@ import { CopyNgIfDirective } from './CustomDirectives/StructuralDirective/copy-n
     RandomBottonDirective,
     NotAvailableDirective,
     CopyNgIfDirective,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    NotfoundComponent,
+    LoginComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

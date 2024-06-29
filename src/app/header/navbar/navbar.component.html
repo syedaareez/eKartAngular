@@ -1,10 +1,13 @@
 <div class="navbar">
-  <p class="brand-name">eKart</p>
+  <p routerLink="Home" class="brand-name">eKart</p>
   <div class="links">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Products</a>
-    <a href="#">Contact</a>
+    <a routerLink="Home" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="About" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">About</a>
+    <a routerLink="Products" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Products</a>
+    <a routerLink="Contact" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Contact</a>
+    <a routerLink="Cart" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">My Cart</a>
+    <a routerLink="Login" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Login</a>
+    <a (click)="logout()">Logout</a>
   </div>
 </div>
 
