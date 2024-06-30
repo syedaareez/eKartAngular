@@ -17,6 +17,9 @@
       <div class="product-detail-stock-status">
         {{selectedProduct.isInInventory ? "Only " + selectedProduct.itemsLeft + " items left" : "Not in stock"}}
       </div>
+      <div >
+        <button *ngIf="selectedProduct.isInInventory" class="normalbtn" (click)="addToCart(selectedProduct)">Add to cart</button>
+      </div>
     </div>
   </div>
 </div>

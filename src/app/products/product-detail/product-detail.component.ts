@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { ProductDetailModalService } from 'src/app/Services/product-detail-modal.service';
+import { CartService } from 'src/app/Services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -41,6 +43,17 @@ export class ProductDetailComponent {
 
   closeModal(){
     this.isModalVisible =false;
+  }
+
+  //for cart services
+
+  cartService=inject(CartService);
+
+  router=inject(Router);
+
+  addToCart(item){
+    this.cartService.addToCart(item);
+    this.router.navigate(['Cart'])
   }
 
 

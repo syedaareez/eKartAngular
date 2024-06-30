@@ -5,9 +5,9 @@
     <a routerLink="About" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">About</a>
     <a routerLink="Products" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Products</a>
     <a routerLink="Contact" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Contact</a>
-    <a routerLink="Cart" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">My Cart</a>
-    <a routerLink="Login" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Login</a>
-    <a (click)="logout()">Logout</a>
+    <a  routerLink="Cart" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">My Cart</a>
+    <a *ngIf="!loggedInFlag" routerLink="Login" [routerLinkActive]="'activeLink'" [routerLinkActiveOptions]="{exact:true}">Login</a>
+    <a *ngIf="loggedInFlag" (click)="logout()">Logout</a>
   </div>
 </div>
 

@@ -1,6 +1,11 @@
 <body>
   <div class="cart-container">
+
+
     <h2>Shopping Cart</h2>
+
+
+    <ng-container *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-items">
       <div *ngFor="let item of cartItems" class="cart-item">
         <img [src]="item.imageUrl" alt="{{item.name}}" class="cart-item-image">
@@ -18,14 +23,32 @@
               ${{item.price - (item.price * item.discountedPrice / 100)}}
             </span>
           </p>
-          <p *ngIf="item.isInInventory">In Stock: {{item.itemsLeft}} left</p>
-          <p *ngIf="!item.isInInventory" class="out-of-stock">Out of Stock</p>
+          <div class="cart-item-quantity">
+            <button (click)="decreaseQuantity(item)">-</button>
+            <span>{{item.quantity}}</span>
+            <button (click)="increaseQuantity(item)">+</button>
+          </div>
+          <!-- <p *ngIf="item.isInInventory">In Stock: {{item.itemsLeft}} left</p> -->
+          <!-- <p *ngIf="!item.isInInventory" class="out-of-stock">Out of Stock</p> -->
         </div>
+        <button (click)="removeItem(item)" class="delete-button">Remove</button>
       </div>
     </div>
-    <div class="cart-total">
+    </ng-container>
+
+
+    <div *ngIf="calculateTotal()>0" class="cart-total">
       <h3>Total: ${{calculateTotal()}}</h3>
     </div>
+
+    <ng-template #emptyCart>
+      <div class="empty-cart">
+        <p>Your cart is empty.</p>
+        <a routerLink='/Products' class="continue-shopping">Continue Shopping</a>
+      </div>
+    </ng-template>
   </div>
 </body>
+
+
 
